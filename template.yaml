@@ -19,4 +19,4 @@ Resources:
         - Key: Project
           Value: demo
         - Key: Env
-          Value: sandbox
+          Value: test
