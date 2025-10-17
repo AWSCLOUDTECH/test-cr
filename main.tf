@@ -51,6 +51,11 @@ resource "aws_route_table" "web_public_rtb" {
   }
 }
 
+resource "aws_route_table_association" "web_subnet_assoc" {
+  subnet_id      = aws_subnet.web_subnet.id
+  route_table_id = aws_route_table.web_public_rtb.id
+}
+
 resource "aws_internet_gateway" "web_igw" {
   vpc_id = aws_vpc.web_vpc.id
 
