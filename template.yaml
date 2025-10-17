@@ -11,12 +11,12 @@ Resources:
       VersioningConfiguration:
         Status: Enabled
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: true
-        BlockPublicPolicy: true
-        IgnorePublicAcls: true
-        RestrictPublicBuckets: true
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+            RestrictPublicBuckets: false
       Tags:
         - Key: Project
-          Value: demo
+          Value: demo2222
         - Key: Env
-          Value: sandbox
+          Value: test2
