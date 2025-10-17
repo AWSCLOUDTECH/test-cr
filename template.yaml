@@ -17,6 +17,6 @@ Resources:
         RestrictPublicBuckets: true
       Tags:
         - Key: Project
-          Value: demo
+          Value: demo2222
         - Key: Env
           Value: test2
