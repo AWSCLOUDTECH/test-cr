@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Minimal S3 bucket for demo (intentionally imperfect)
+
+Resources:
+  DemoBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: demo-bucket-ct-yourname   # ← 固定名の衝突リスクを指摘させたい
+      VersioningConfiguration:
+        Status: Suspended                   # ← 無効
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false              # ← 全部falseで危険にしておく
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      Tags:
+        - Key: Project
+          Value: demo
+# ← DeletionPolicy/UpdateReplacePolicy 未設定（削除時に消えるリスク）
