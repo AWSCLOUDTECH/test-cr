@@ -1,19 +1,22 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Minimal S3 bucket for demo (intentionally imperfect)
+Description: Secure S3 bucket (reviewed & improved)
 
 Resources:
   DemoBucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     Properties:
-      BucketName: demo-bucket-ct-yourname   # ← 固定名の衝突リスクを指摘させたい
+      # BucketName は未指定（自動割当）か、一意化してもOK
       VersioningConfiguration:
-        Status: Suspended                   # ← 無効
+        Status: Enabled
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: false              # ← 全部falseで危険にしておく
-        BlockPublicPolicy: false
-        IgnorePublicAcls: false
-        RestrictPublicBuckets: false
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
       Tags:
         - Key: Project
           Value: demo
-# ← DeletionPolicy/UpdateReplacePolicy 未設定（削除時に消えるリスク）
+        - Key: Env
+          Value: sandbox
